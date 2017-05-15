@@ -1,3 +1,4 @@
+
 function EventEmitter() {
 	
 	this.events = {};
@@ -16,7 +17,7 @@ EventEmitter.prototype.on = function(eventName, fn) {
 	this.events[eventName].push(fn);
 }
 
-EventEmitter.prototype.off(eventName, fn) {
+EventEmitter.prototype.off = function(eventName, fn) {
 
 	// on verifie que l'event existe, si il n'existe pas on ne fait rien 
 	if (!this.events[eventName]) return;
@@ -32,22 +33,26 @@ EventEmitter.prototype.off(eventName, fn) {
 
 			// puis on stoppe la boucle quand on le trouve
 			break;
-		};
-	};
+		}
+	}
 
 	
 }
 
-EventEmitter.prototype.emit(eventName, data) {
+
+
+EventEmitter.prototype.emit = function(eventName, data) {
 
 	// verifie si l'event existe
-	if (this.events[eventName]) return;
+	if (!this.events[eventName]) return;
 
 	//s'il existe, execute les functions associées
 	// on parcours les functions de l'event
 	this.events[eventName].forEach(function(fn) {
 
-		// on les execute avaec comme parametre les data de emit 
+		console.log(eventName + ' => ' + fn);
+
+		// on les execute avec comme parametre les data de emit 
 		fn(data);	
 
 	});
