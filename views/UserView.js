@@ -26,8 +26,7 @@ UserView.prototype.init = function() {
 		e.preventDefault();
 
 
-
-		this.emit('change-username', { 
+		this.emit('change-username', {
 
 			username: document.querySelector('#username').value 
 

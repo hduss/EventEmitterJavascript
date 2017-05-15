@@ -42,7 +42,6 @@ EventEmitter.prototype.off = function(eventName, fn) {
 
 
 EventEmitter.prototype.emit = function(eventName, data) {
-
 	// verifie si l'event existe
 	if (!this.events[eventName]) return;
 
@@ -53,7 +52,7 @@ EventEmitter.prototype.emit = function(eventName, data) {
 		console.log(eventName + ' => ' + fn);
 
 		// on les execute avec comme parametre les data de emit 
-		fn(data);	
+		fn(data);
 
 	});
 
